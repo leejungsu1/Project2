@@ -10,8 +10,6 @@ public class BankingSystemVer5 {
 	static String accountNumber;
 	static String name;
 	static int balance;
-	static int numOfAcc=0;
-	static Account[] acc = new Account[50];
 	
 	public static void showMenu() {
 		System.out.println("-------Menu-------");
@@ -31,7 +29,7 @@ public class BankingSystemVer5 {
 		System.out.print("잔고:");
 		balance = scan.nextInt();
 		new Insert(accountNumber, name, balance).execute();
-		acc[numOfAcc++] = new Account(accountNumber, name, balance);
+		
 		System.out.println("계좌개설이 완료되었습니다.");
 	}
 	public static void depositMoney() {
@@ -43,13 +41,7 @@ public class BankingSystemVer5 {
 		System.out.print("입금액:");
 		int deposit = scan.nextInt();
 		
-		for(int i=0; i<numOfAcc ; i++) {
-			
-			if(SearchAccount.compareTo(acc[i].getAccount())==0) {
-				new Update_deposit(SearchAccount, deposit).execute();
-				acc[i].setBalance(acc[i].getBalance()+ deposit);
-			}
-		}
+		new Update_deposit(SearchAccount, deposit).execute();
 		System.out.println("입금이 완료되었습니다.");
 	}
 	public static void withdrawMoney() {
@@ -60,33 +52,13 @@ public class BankingSystemVer5 {
 		String SearchAccount = scan.next();
 		System.out.print("출금액:");
 		int withdraw = scan.nextInt();
-		
-		for(int i=0; i<numOfAcc ; i++) {
+		new Update_withdraw(SearchAccount, withdraw).execute();
 			
-			if(SearchAccount.compareTo(acc[i].getAccount())==0) {
-				if(acc[i].getBalance()< withdraw) {
-					System.out.println("잔액이 부족합니다.");
-					return;
-				}
-				new Update_withdraw(SearchAccount, withdraw).execute();
-				acc[i].setBalance(acc[i].getBalance()-withdraw);
-			}
-		}
 		System.out.println("출금이 완료되었습니다.");
 	}
 	public static void showAccInfo() {
-		for(int i=0 ; i<numOfAcc ; i++) {
-			new Select(accountNumber, name, balance).execute();;
-//			System.out.println("***계좌정보출력***");
-//			System.out.println("-------------");
-//			System.out.println("계좌번호:"+ acc[i].getAccount());
-//			System.out.println("고객이름:"+ acc[i].getName());
-//			System.out.println("잔고:"+ acc[i].getBalance());
-//			System.out.println("-------------");
-//			System.out.println("전체계좌정보가 출력이 완료되었습니다.");
-		}
+		new Select(accountNumber, name, balance).execute();
 	}
-	
 	public static void main(String[] args) {
 		
 		while(true) {
