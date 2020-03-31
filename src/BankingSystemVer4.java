@@ -8,7 +8,7 @@ public class BankingSystemVer4 {
 	
 	public static void main(String[] args) {
 		AccountManager accM = new AccountManager();
-		
+		accM.readAccount();
 		while(true) {
 			try {
 				accM.showMenu();
@@ -32,6 +32,7 @@ public class BankingSystemVer4 {
 					accM.showAllAccount();
 				}
 				else if(choice==5) {
+					accM.saveAccount();
 					System.out.println("프로그램을 종료합니다.");
 					break;
 				}

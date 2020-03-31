@@ -8,7 +8,6 @@ public class NormalAccount extends Account{
 		super(accountNumber, name, balance);
 		this.rate = rate;
 	}
-
 	public int getRate() {
 		return rate;
 	}

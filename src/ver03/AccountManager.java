@@ -37,7 +37,7 @@ public class AccountManager {
 			System.out.print("잔고:");
 			balance = scan.nextInt();
 			System.out.print("기본이자%(정수형태로입력):");
-			int rate = scan.nextInt();
+			rate = scan.nextInt();
 			acc[numOfAcc++] = new NormalAccount(accountNumber, name, balance, rate);
 			System.out.println("계좌개설이 완료되었습니다.");
 		}

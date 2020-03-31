@@ -29,9 +29,6 @@ public class HighCreditAccount extends Account{
 			return 0;
 		}
 	}
-	
-	
-	
 	@Override
 	public void showAccInfo() {
 		super.showAccInfo();

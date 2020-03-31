@@ -16,22 +16,19 @@ public class HighCreditAccount extends Account{
 		this.rate = rate;
 	}
 	public int getCreditRateing() {
-		if(creditRateing == "A") {
+		if(creditRateing.equals("A")) {
 			return 7;
 		}
-		else if(creditRateing == "B") {
+		else if(creditRateing.equals("B")) {
 			return 4;
 		}
-		else if(creditRateing == "C") {
+		else if(creditRateing.equals("C")) {
 			return 2;
 		}
 		else {
 			return 0;
 		}
 	}
-	
-	
-	
 	@Override
 	public void showAccInfo() {
 		super.showAccInfo();
