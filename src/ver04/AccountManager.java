@@ -132,7 +132,7 @@ public class AccountManager {
 			}
 		}
 		catch(InputMismatchException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		System.out.println("입금이 완료되었습니다.");
 	}
@@ -192,10 +192,10 @@ public class AccountManager {
 			out.close();
 		}
 		catch(FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		catch(IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 	public void readAccount() {
@@ -210,13 +210,13 @@ public class AccountManager {
 			System.out.println("저장된 파일을 찾았습니다.");
 		}
 		catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		catch(FileNotFoundException e) {
 			System.out.println("파일을 찾을 수 없습니다.");
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 }

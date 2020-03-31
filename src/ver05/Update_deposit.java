@@ -27,10 +27,10 @@ public class Update_deposit extends IConnectImpl{
 			System.out.println(affected+"행이 업데이트 되었습니다.");
 		}
 		catch(SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		finally {
 			close();

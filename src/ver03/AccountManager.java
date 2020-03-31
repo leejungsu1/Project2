@@ -82,7 +82,7 @@ public class AccountManager {
 			}
 		}
 		catch(InputMismatchException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		System.out.println("입금이 완료되었습니다.");
 	}

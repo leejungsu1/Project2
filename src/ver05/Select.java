@@ -33,10 +33,10 @@ public class Select extends IConnectImpl{
 			}
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		finally {
 			close();
