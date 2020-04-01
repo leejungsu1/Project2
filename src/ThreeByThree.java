@@ -21,7 +21,7 @@ public class ThreeByThree {
 	}
 	public static String[][] shuffle(String[][] puz){
 		Random random = new Random();
-		for(int i=1 ; i<=100 ; i++) {
+		for(int i=1 ; i<=4 ; i++) {
 			try {
 				switch ((int)(((Math.random()*100)) % 4)+1) {
 				case 1:
@@ -63,10 +63,10 @@ public class ThreeByThree {
 		}; 
 		
 		Scanner scan = new Scanner(System.in);
+		puz = shuffle(puz);
 		
 		while(true) {
 			try {
-				puz = shuffle(puz);
 				for(int i=0 ; i<puz.length ; i++) {
 					for(int j=0 ; j<puz[i].length ; j++) {
 						System.out.print(puz[i][j]+" ");
@@ -100,27 +100,21 @@ public class ThreeByThree {
 				System.out.println("xxxxxxx이동불가xxxxxxx");
 				System.out.println("다른키를 누르세요.");
 			}
-			for(int i=0 ; i<puz.length ; i++) {
-				for(int j=0 ; j<puz[i].length ; j++) {
-					System.out.print(puz[i][j]+" ");
-				}
-				System.out.println();
-			}
 			if(gameCheck(puz)==true) {
 				System.out.println("성공하였습니다.");
 				System.out.println("재시작(0), 종료(1)을 누르세요.");
 				int choice = scan.nextInt();
 				if(choice==0) {
 					System.out.println("게임을 재시작합니다.");
-					continue;
+					gameRule();
 				}
 				else if(choice==1) {
 					System.out.println("게임을 종료합니다.");
-					break;
+					System.exit(0);
 				}
 			}
 			else {
-				System.out.println("다시 하세요.");
+				System.out.println("한번 더 움직여보세요");
 				continue;
 			}
 		}

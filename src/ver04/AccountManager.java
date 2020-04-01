@@ -57,14 +57,14 @@ public class AccountManager {
 				Account a = new NormalAccount(accountNumber, name, balance, rate);
 				Account i = itr.next();
 				if(i.equals(a)==true) {
-					System.out.println("동일한 계좌번호가 존재합니다. 갱신할까요?(0)");
+					System.out.println("동일한 계좌번호가 존재합니다. 갱신(0) 유지(1)");
 					int select = scan.nextInt();
 					if(select==0) {
 						acc.remove(i);
 						acc.add(a);
 					}
-					else {
-						choice=0;
+					else if(select==1){
+						return;
 					}
 				}
 			}
@@ -82,20 +82,30 @@ public class AccountManager {
 			rate = scan.nextInt();
 			System.out.print("신용등급(A,B,C등급):");
 			String creditRateing = scan.next();
+			while(true) {	
+				if(!(creditRateing.equals("A")||creditRateing.equals("B")||creditRateing.equals("C"))) {
+					System.out.print("신용등급을 다시 입력하세요.신용등급(A,B,C등급)");
+					creditRateing = scan.next();
+				}
+				else {
+					break;
+				}
+			}
 			Iterator<Account> itr = acc.iterator();
 			
 			while(itr.hasNext()) {
 				Account a = new HighCreditAccount(accountNumber, name, balance, rate, creditRateing);
 				Account i = itr.next();
 				if(i.equals(a)==true) {
-					System.out.println("동일한 계좌번호가 존재합니다. 갱신할까요?(0)");
+					System.out.println("동일한 계좌번호가 존재합니다. 갱신(0) 유지(1)");
 					int select = scan.nextInt();
 					if(select==0) {
 						acc.remove(i);
 						acc.add(a);
+						return;
 					}
-					else {
-						choice=0;
+					else if(select==1){
+						return;
 					}
 				}
 			}
@@ -117,7 +127,7 @@ public class AccountManager {
 				return;
 			}
 			else if(deposit % 500!=0) {
-				System.out.println("입금할 금액을 다시 적어주세요.");
+				System.out.println("입금은 500원 단위로만 출금이 가능합니다.");
 				return;
 			}
 			boolean answer = false;
@@ -127,12 +137,15 @@ public class AccountManager {
 				Account i = itr.next();
 				if(SearchAccount.equals(i.getAccount())==true) {
 					answer = true;
-					i.setBalance(i.getBalance()+deposit);
+					i.setBalance((int)(i.getBalance()
+							+(i.getBalance()*(i.getRate()*0.01)
+									+(i.getBalance()*i.getCreditRateing()*0.01))+ deposit));
 				}
 			}
 		}
 		catch(InputMismatchException e) {
-			System.out.println(e.getMessage());
+			System.out.println("입금액은 숫자로 작성해주세요.");
+			return;
 		}
 		System.out.println("입금이 완료되었습니다.");
 	}
@@ -155,9 +168,10 @@ public class AccountManager {
 					String user = scan.next();
 					if(user.equalsIgnoreCase("YES")) {
 						i.setBalance(i.getBalance()-i.getBalance());
+						return;
 					}
 					else if(user.equalsIgnoreCase("NO")) {
-						break;
+						return;
 					}
 				}
 				else if(withdraw%1000!=0) {

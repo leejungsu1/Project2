@@ -38,13 +38,13 @@ public class BankingSystemVer4 {
 				}
 			}
 			catch(MenuSelectException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 			catch(InputMismatchException e) {
-				e.printStackTrace();
+				System.out.println("1~5 중의 숫자를 누르세요.");
 			}
 			catch(NullPointerException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 	}
