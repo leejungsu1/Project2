@@ -46,9 +46,7 @@ public class ThreeByThree {
 					break;
 				}
 			}
-			
 			catch (Exception e) {
-			
 			}
 		}
 		return puz;
