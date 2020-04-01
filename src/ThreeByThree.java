@@ -21,7 +21,7 @@ public class ThreeByThree {
 	}
 	public static String[][] shuffle(String[][] puz){
 		Random random = new Random();
-		for(int i=1 ; i<=3 ; i++) {
+		for(int i=1 ; i<=100 ; i++) {
 			try {
 				switch ((int)(((Math.random()*100)) % 4)+1) {
 				case 1:
