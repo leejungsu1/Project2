@@ -127,7 +127,7 @@ public class AccountManager {
 				return;
 			}
 			else if(deposit % 500!=0) {
-				System.out.println("입금은 500원 단위로만 출금이 가능합니다.");
+				System.out.println("입금은 500원 단위로만 입금이 가능합니다.");
 				return;
 			}
 			boolean answer = false;
