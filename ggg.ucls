@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="ver04.Account" project="Project2" file="/Project2/src/ver04/Account.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="822" y="517"/>    
+    <position height="-1" width="-1" x="821" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
